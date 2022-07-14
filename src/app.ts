@@ -2,9 +2,7 @@
 import { create, Whatsapp } from "venom-bot";
 //const venom = require('venom-bot');
 const { NlpManager } = require("node-nlp");
-
 const manager = new NlpManager({ languages: ["pt"], forceNER: true });
-
 // Adds the utterances and intents for the NLP
 manager.addDocument("pt", "oi", "saudacao");
 manager.addDocument("pt", "tudo bem", "saudacao");
@@ -12,19 +10,17 @@ manager.addDocument("pt", "boa tarde", "saudacao");
 manager.addDocument("pt", "boa noite", "saudacao");
 manager.addDocument("pt", "bom dia", "saudacao");
 manager.addDocument("pt", "e ae", "saudacao");
-
+manager.addDocument("pt", "fala mano", "saudacao");
+manager.addDocument("pt", "ei mano", "saudacao");
 manager.addDocument("pt", "tudo bem?", "preocupacao");
 manager.addDocument("pt", "como vc ta?", "preocupacao");
 manager.addDocument("pt", "ta tudo bem com voce?", "preocupacao");
 manager.addDocument("pt", "como foi seu dia?", "preocupacao");
-
 manager.addDocument("pt", "onde fica localizada", "localizacao");
-
 manager.addDocument("pt", "onde fica localizada", "localizacao");
 manager.addDocument("pt", "qual o ponto de referencia", "localizacao");
 manager.addDocument("pt", "qual o endereço", "localizacao");
 manager.addDocument("pt", "qual a localizacao da empresa", "localizacao");
-
 // Train also the NLG
 manager.addAnswer(
   "pt",
@@ -51,11 +47,15 @@ manager.addAnswer(
   "saudacao",
   "Boa tarde"
 );
-
 manager.addAnswer(
   "pt",
   "saudacao",
   "Oiie Boa noite"
+);
+manager.addAnswer(
+  "pt",
+  "saudacao",
+  "Fala mano"
 );
 manager.addAnswer(
   "pt",
@@ -92,7 +92,6 @@ manager.addAnswer(
   "preocupacao",
   "Sim, estou muito bem graças a Deus"
 );
-
 manager.addAnswer(
   "pt",
   "preocupacao",
@@ -118,7 +117,6 @@ manager.addAnswer(
   "localizacao",
   "Blz, vou te mandar a localizacao no mapa!"
 );
-
 // Função Main
 (async () => {
   await manager.train();

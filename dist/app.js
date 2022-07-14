@@ -48,6 +48,8 @@ manager.addDocument("pt", "boa tarde", "saudacao");
 manager.addDocument("pt", "boa noite", "saudacao");
 manager.addDocument("pt", "bom dia", "saudacao");
 manager.addDocument("pt", "e ae", "saudacao");
+manager.addDocument("pt", "fala mano", "saudacao");
+manager.addDocument("pt", "ei mano", "saudacao");
 manager.addDocument("pt", "tudo bem?", "preocupacao");
 manager.addDocument("pt", "como vc ta?", "preocupacao");
 manager.addDocument("pt", "ta tudo bem com voce?", "preocupacao");
@@ -64,6 +66,7 @@ manager.addAnswer("pt", "saudacao", "Bom dia");
 manager.addAnswer("pt", "saudacao", "Oiie Boa tarde");
 manager.addAnswer("pt", "saudacao", "Boa tarde");
 manager.addAnswer("pt", "saudacao", "Oiie Boa noite");
+manager.addAnswer("pt", "saudacao", "Fala mano");
 manager.addAnswer("pt", "saudacao", "Boa noite");
 manager.addAnswer("pt", "saudacao", "Oiie como vc tá?");
 manager.addAnswer("pt", "saudacao", "Oie Tudo bom?");
@@ -93,7 +96,7 @@ manager.addAnswer("pt", "localizacao", "Blz, vou te mandar a localizacao no mapa
                             switch (_a.label) {
                                 case 0:
                                     if (!(message.isGroupMsg === false)) return [3 /*break*/, 6];
-                                    return [4 /*yield*/, manager.process("pt", message.body)];
+                                    return [4 /*yield*/, manager.process("pt", message.body.toLowerCase())];
                                 case 1:
                                     response = _a.sent();
                                     if (!(response.intent === "None")) return [3 /*break*/, 3];
